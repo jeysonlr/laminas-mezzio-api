@@ -137,4 +137,32 @@ class StateRepository extends EntityRepository
             );
         }
     }
+
+    /**
+     * @param int $stateId
+     * @return array|null
+     * @throws SQLFileNotFoundException
+     * @throws StateDatabaseException
+     */
+    public function findCityByState(int $stateId): ?array
+    {
+        try {
+            $this->setInstance();
+            $this->resultSetMapping->addScalarResult('cidade', 'cidade');
+            $this->resultSetMapping->addScalarResult('estado', 'estado');
+            $this->resultSetMapping->addScalarResult('uf', 'uf');
+            $sql = $this->readSQL->readArchive('State', 'SELECT_CITY_BY_STATE');
+            $query = $this->getEntityManager()->createNativeQuery($sql, $this->resultSetMapping);
+            $query->setParameter('estadoid', $stateId);
+            return $query->getResult();
+        } catch (SQLFileNotFoundException $e) {
+            throw$e;
+        } catch (Exception $e) {
+            throw new StateDatabaseException(
+                StatusHttp::INTERNAL_SERVER_ERROR,
+                "Ocorreu um erro ao buscar estado!",
+                $e->getMessage()
+            );
+        }
+    }
 }

@@ -41,10 +41,6 @@ class City implements BaseEntityInterface
      * @var int
      * @Type("int")
      * @ORM\Column(name="estadoid", type="integer", nullable=false)
-     * 
-     * @ORM\JoinColumn(name="estadoid", referencedColumnName="estadoid")
-     * @ORM\OneToOne(targetEntity="\State\Entity\State", inversedBy="estadoid")
-     * 
      * @NotBlank(groups={"insert", "update"}, message="O id do estado é obrigatório!")
      */
     private $estadoid;

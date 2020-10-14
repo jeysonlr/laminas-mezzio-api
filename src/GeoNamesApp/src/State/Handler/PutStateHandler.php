@@ -8,9 +8,9 @@ use Exception;
 use App\Util\Enum\StatusHttp;
 use App\Service\Response\ApiResponse;
 use Psr\Http\Message\ResponseInterface;
-use GeoNamesApp\State\Service\PutStateService;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
+use GeoNamesApp\State\Service\PutStateService;
 use GeoNamesApp\State\Exception\StateDatabaseException;
 
 class PutStateHandler implements RequestHandlerInterface

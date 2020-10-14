@@ -34,7 +34,7 @@ class GetStateByIdHandler implements RequestHandlerInterface
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         try {
-            $getState = $this->getStateService->getStateById(
+            $getState = $this->getStateService->getStateAndCitysById(
                 intval($request->getAttribute("estadoId"))
             );
 

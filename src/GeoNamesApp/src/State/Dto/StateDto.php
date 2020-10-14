@@ -2,66 +2,64 @@
 
 declare(strict_types=1);
 
-namespace GeoNamesApp\State\Entity;
-
-use App\Entity\BaseEntityInterface;
+namespace GeoNamesApp\State\Dto;
 
 use DateTime;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ORM\Mapping as ORM;
-use GeoNamesApp\City\Entity\City;
 use JMS\Serializer\Annotation\Type;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use JMS\Serializer\Annotation\SerializedName;
-use Doctrine\ORM\Mapping\OneToMany;
 
-/**
- *public.estados
- *
- * @ORM\Table(schema="public", name="estados")
- * @ORM\Entity(repositoryClass="GeoNamesApp\State\Repository\StateRepository")
- */
-class State implements BaseEntityInterface
+class StateDto
 {
-    /** 
+    /**
      * @var int
      * @Type("int")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * @ORM\SequenceGenerator(sequenceName="public.estados_id_seq", allocationSize=1, initialValue=1)
-     * @ORM\Column(name="estadoid", type="integer", nullable=false)
      */
     private $estadoid;
 
-     /**
+    /**
      * @var string
      * @Type("string")
-     * @ORM\Column(name="nome", type="text", nullable=false)
-     * @NotBlank(groups={"insert", "update"}, message="O campo nome é obrigatório!")
      */
     private $nome;
 
-     /**
+    /**
      * @var string
      * @Type("string")
-     * @ORM\Column(name="abreviacao", type="text", nullable=false)
-     * @NotBlank(groups={"insert", "update"}, message="O campo abreviacao do estado é obrigatório!")
      */
     private $abreviacao;
 
-     /**
+    /**
      * @var Datetime
      * @Type("DateTime<'d/m/Y H:i:s'>")
-     * @ORM\Column(name="datacriacao", type="datetime")
      */
     private $datacriacao;
 
-     /**
+    /**
      * @var Datetime
      * @Type("DateTime<'d/m/Y H:i:s'>")
-     * @ORM\Column(name="dataalteracao", type="datetime")
      */
     private $dataalteracao;
+
+    /**
+     * @var array
+     * @Type("array")
+     */
+    protected $cidades;
+
+    /**
+     * @return array|null
+     */
+    public function getCidades(): ?array
+    {
+        return $this->cidades;
+    }
+
+    /**
+     * @param array|null $cidades
+     */
+    public function setCidades(?array $cidades): void
+    {
+        $this->cidades = $cidades;
+    }
 
     /**
      * @return int
