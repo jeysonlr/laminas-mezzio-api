@@ -46,7 +46,7 @@ class RoutesDelegator
 
         $app->get("/v1/cidades", [
             GetAllCityHandler::class,
-        ], "get.all_citys");
+        ], "get.all_city");
 
         $app->get("/v1/cidade/{cidadeId:\d+}", [
             GetCityByIdHandler::class,
@@ -64,7 +64,7 @@ class RoutesDelegator
 
         $app->get("/v1/estados", [
             GetAllStateHandler::class,
-        ], "get.all_states");
+        ], "get.all_state");
 
         $app->get("/v1/estado/{estadoId:\d+}", [
             GetStateByIdHandler::class,

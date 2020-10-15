@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-use Laminas\Stratigility\Middleware\ErrorHandler;
 use Mezzio\Application;
+use Mezzio\MiddlewareFactory;
 use Mezzio\Handler\NotFoundHandler;
+use Psr\Container\ContainerInterface;
 use Mezzio\Helper\ServerUrlMiddleware;
 use Mezzio\Helper\UrlHelperMiddleware;
-use Mezzio\MiddlewareFactory;
+use Mezzio\Router\Middleware\RouteMiddleware;
 use Mezzio\Router\Middleware\DispatchMiddleware;
+use Laminas\Stratigility\Middleware\ErrorHandler;
 use Mezzio\Router\Middleware\ImplicitHeadMiddleware;
 use Mezzio\Router\Middleware\ImplicitOptionsMiddleware;
 use Mezzio\Router\Middleware\MethodNotAllowedMiddleware;
-use Mezzio\Router\Middleware\RouteMiddleware;
-use Psr\Container\ContainerInterface;
 
 /**
  * Setup middleware pipeline:
@@ -65,6 +65,8 @@ return function (Application $app, MiddlewareFactory $factory, ContainerInterfac
     // - route-based authentication
     // - route-based validation
     // - etc.
+
+    $app->pipe(\App\Middleware\AuthMiddleware::class);
 
     // Register the dispatch middleware in the middleware pipeline
     $app->pipe(DispatchMiddleware::class);

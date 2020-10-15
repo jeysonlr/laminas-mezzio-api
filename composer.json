@@ -58,7 +58,8 @@
         "doctrine/annotations": "1.10.3",
         "jms/serializer": "3.8.0",
         "symfony/validator": "^5.0",
-        "ext-json": "*"
+        "ext-json": "*",
+        "tuupola/cors-middleware": "^1.1"
     },
     "require-dev": {
         "laminas/laminas-development-mode": "^3.2",

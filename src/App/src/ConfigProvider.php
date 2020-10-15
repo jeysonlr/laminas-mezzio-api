@@ -8,6 +8,8 @@ use App\Container\JMSFactory;
 use App\Container\CorsFactory;
 use App\Container\MonologFactory;
 use App\Container\ValidationFactory;
+use App\Middleware\AuthMiddleware;
+use App\Middleware\AuthMiddlewareFactory;
 use App\Util\Serialize\SerializeUtil;
 use Tuupola\Middleware\CorsMiddleware;
 use App\Util\ReadArchive\ReadArchiveSQL;
@@ -65,6 +67,8 @@ class ConfigProvider
                 ValidationService::class => ValidationServiceFactory::class,
                 Validation::class => ValidationFactory::class,
                 ReadArchiveSQL::class => ReadArchiveSQLFactory::class,
+
+                AuthMiddleware::class => AuthMiddlewareFactory::class,
 
                 #Util converter
                 ConverterIdCnpjCpf::class => ConverterIdCnpjCpfFactory::class,
