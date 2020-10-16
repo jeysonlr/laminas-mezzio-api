@@ -1,5 +1,9 @@
 git clone https://github.com/jeysonlr/laminas-mezzio-api.git
 
+```
+cd laminas-mezzio-api
+```
+
 ### run project
 ```
 docker-compose up -d --build
