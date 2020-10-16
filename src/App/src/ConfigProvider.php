@@ -6,7 +6,6 @@ namespace App;
 
 use App\Container\JMSFactory;
 use App\Container\CorsFactory;
-use App\Container\MonologFactory;
 use App\Container\ValidationFactory;
 use App\Middleware\AuthMiddleware;
 use App\Middleware\AuthMiddlewareFactory;
@@ -62,7 +61,6 @@ class ConfigProvider
                 Handler\HomePageHandler::class => Handler\HomePageHandlerFactory::class,
                 'serializer' => JMSFactory::class,
                 CorsMiddleware::class => CorsFactory::class,
-                MonologFactory::class => MonologFactory::class,
                 SerializeUtil::class => SerializeUtilFactory::class,
                 ValidationService::class => ValidationServiceFactory::class,
                 Validation::class => ValidationFactory::class,
