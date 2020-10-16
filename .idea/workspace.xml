@@ -21,11 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3c54bd6b-32ab-40c6-8bf2-36230f816c95" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/autoload/api-credencials.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/autoload/api-credencials.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GeoNamesApp/src/City/Repository/CityRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GeoNamesApp/src/City/Repository/CityRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GeoNamesApp/src/ConfigProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GeoNamesApp/src/ConfigProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GeoNamesApp/src/RoutesDelegator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GeoNamesApp/src/RoutesDelegator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GeoNamesApp/src/State/Repository/StateRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GeoNamesApp/src/State/Repository/StateRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +197,7 @@
       <updated>1602687882737</updated>
       <workItem from="1602687883869" duration="21161000" />
       <workItem from="1602761672829" duration="11564000" />
-      <workItem from="1602863608928" duration="3407000" />
+      <workItem from="1602863608928" duration="5087000" />
     </task>
     <servers />
   </component>
@@ -229,10 +225,10 @@
       <screen x="1366" y="0" width="1366" height="768" />
     </state>
     <state x="1770" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728/1366.0.1366.768@1366.0.1366.768" timestamp="1602695762294" />
-    <state x="1779" y="139" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602870368173">
+    <state x="1779" y="139" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602871521444">
       <screen x="1366" y="0" width="1366" height="768" />
     </state>
-    <state x="1779" y="139" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1366.768@1366.0.1366.768" timestamp="1602870368173" />
+    <state x="1779" y="139" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1366.768@1366.0.1366.768" timestamp="1602871521444" />
     <state x="1723" y="107" key="NewPhpClassDialog" timestamp="1602870163190">
       <screen x="1366" y="0" width="1366" height="768" />
     </state>
@@ -243,6 +239,10 @@
     </state>
     <state x="1883" y="307" key="NewPhpFileDialog/0.0.1366.728/1366.0.1366.768@1366.0.1366.768" timestamp="1602805914357" />
     <state x="517" y="291" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1602763748193" />
+    <state x="1366" y="0" width="585" height="768" key="find.popup" timestamp="1602872315773">
+      <screen x="1366" y="0" width="1366" height="768" />
+    </state>
+    <state x="1366" y="0" width="585" height="768" key="find.popup/0.0.1366.728/1366.0.1366.768@1366.0.1366.768" timestamp="1602872315773" />
     <state x="1705" y="172" key="run.anything.popup" timestamp="1602864548245">
       <screen x="1366" y="0" width="1366" height="768" />
     </state>
