@@ -73,6 +73,24 @@ class CityRepository extends EntityRepository
     }
 
     /**
+     * @param City $city
+     * @throws CityDatabaseException
+     */
+    public function deleteCity(City $city): void
+    {
+        try {
+            $this->getEntityManager()->remove($city);
+            $this->getEntityManager()->flush();
+        } catch (Exception $e) {
+            throw new CityDatabaseException(
+                StatusHttp::INTERNAL_SERVER_ERROR,
+                ErrorMessage::ERROR_DELETING_RECORD,
+                $e->getMessage()
+            );
+        }
+    }
+
+    /**
      * @param int $cityId
      * @return City|null
      * @throws CityDatabaseException

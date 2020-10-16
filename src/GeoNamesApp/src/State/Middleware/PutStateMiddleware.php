@@ -13,9 +13,9 @@ use App\Util\Serialize\SerializeUtil;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use App\Util\Validation\ValidationService;
-use GeoNamesApp\State\Service\GetStateService;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
+use GeoNamesApp\State\Service\GetStateService;
 use GeoNamesApp\State\Exception\StateDatabaseException;
 use App\Util\Validation\CheckConstraints\Exception\BaseEntityException;
 use App\Util\Validation\CheckConstraints\Exception\BaseEntityViolationsException;
@@ -62,6 +62,7 @@ class PutStateMiddleware implements MiddlewareInterface
             );
 
             $stateId = intval($request->getAttribute('estadoId'));
+            $this->validationService->validateEntity($state, ['update']);
 
             if (!$this->getStateService->getStateById($stateId)) {
                 throw new StateDatabaseException(
@@ -73,10 +74,7 @@ class PutStateMiddleware implements MiddlewareInterface
                 );
             }
 
-            $this->validationService->validateEntity($state, ['update']);
             $state->setEstadoid($stateId);
-            //            var_dump($state);
-            //            exit;
 
         } catch (BaseEntityException $e) {
             return new ApiResponse($e->getCustomError(), $e->getCode(), ApiResponse::ERROR);

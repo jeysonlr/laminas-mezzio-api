@@ -86,7 +86,7 @@ class PostCityMiddleware implements MiddlewareInterface
 
             if ($databaseCity & $databaseCity['estadoid'] === $city->getEstadoid()) {
                 throw new CityDatabaseException(
-                    StatusHttp::BAD_REQUEST,
+                    StatusHttp::CONFLICT,
                     sprintf(
                         ErrorMessage::ERROR_CITY_DUPLICATED,
                         $city->getEstadoid()

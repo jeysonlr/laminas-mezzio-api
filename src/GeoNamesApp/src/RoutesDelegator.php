@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace GeoNamesApp;
 
+use GeoNamesApp\City\Handler\DeleteCityHandler;
+use GeoNamesApp\City\Handler\DeleteCityHandlerFactory;
+use GeoNamesApp\State\Handler\DeleteStateHandler;
+use GeoNamesApp\State\Handler\DeleteStateHandlerFactory;
 use Mezzio\Application;
 use GeoNamesApp\State\Handler\GetAllStateHandler;
 use GeoNamesApp\State\Handler\GetStateByIdHandler;
@@ -44,6 +48,10 @@ class RoutesDelegator
             PutCityHandler::class,
         ], "put.city");
 
+        $app->delete("/v1/cidade/{cidadeId:\d+}", [
+            DeleteCityHandler::class,
+        ], "delete.city");
+
         $app->get("/v1/cidades", [
             GetAllCityHandler::class,
         ], "get.all_city");
@@ -61,6 +69,10 @@ class RoutesDelegator
             PutStateMiddleware::class,
             PutStateHandler::class,
         ], "put.state");
+
+        $app->delete("/v1/estado/{estadoId:\d+}", [
+            DeleteStateHandler::class,
+        ], "delete.state");
 
         $app->get("/v1/estados", [
             GetAllStateHandler::class,

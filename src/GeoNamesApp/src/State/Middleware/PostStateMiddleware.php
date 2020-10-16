@@ -67,7 +67,7 @@ class PostStateMiddleware implements MiddlewareInterface
 
             if ($databaseState & $databaseState['nome'] === $state->getNome()) {
                 throw new StateDatabaseException(
-                    StatusHttp::BAD_REQUEST,
+                    StatusHttp::CONFLICT,
                     ErrorMessage::ERROR_STATE_DUPLICATED
                 );
             }

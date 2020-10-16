@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace GeoNamesApp;
 
+use GeoNamesApp\City\Handler\DeleteCityHandler;
+use GeoNamesApp\City\Handler\DeleteCityHandlerFactory;
 use GeoNamesApp\City\Handler\GetAllCityHandler;
 use GeoNamesApp\City\Handler\GetAllCityHandlerFactory;
 use GeoNamesApp\City\Handler\PostCityHandler;
@@ -14,6 +16,8 @@ use GeoNamesApp\City\Middleware\PostCityMiddleware;
 use GeoNamesApp\City\Middleware\PostCityMiddlewareFactory;
 use GeoNamesApp\City\Middleware\PutCityMiddleware;
 use GeoNamesApp\City\Middleware\PutCityMiddlewareFactory;
+use GeoNamesApp\City\Service\DeleteCityService;
+use GeoNamesApp\City\Service\DeleteCityServiceFactory;
 use GeoNamesApp\City\Service\GetCityService;
 use GeoNamesApp\City\Service\GetCityServiceFactory;
 use GeoNamesApp\City\Service\PostCityService;
@@ -22,6 +26,8 @@ use GeoNamesApp\City\Service\PutCityService;
 use GeoNamesApp\City\Service\PutCityServiceFactory;
 use GeoNamesApp\City\Handler\GetCityByIdHandler;
 use GeoNamesApp\City\Handler\GetCityByIdHandlerFactory;
+use GeoNamesApp\State\Handler\DeleteStateHandler;
+use GeoNamesApp\State\Handler\DeleteStateHandlerFactory;
 use GeoNamesApp\State\Handler\GetAllStateHandler;
 use GeoNamesApp\State\Handler\GetAllStateHandlerFactory;
 use GeoNamesApp\State\Handler\GetStateByIdHandler;
@@ -34,6 +40,8 @@ use GeoNamesApp\State\Middleware\PostStateMiddleware;
 use GeoNamesApp\State\Middleware\PostStateMiddlewareFactory;
 use GeoNamesApp\State\Middleware\PutStateMiddleware;
 use GeoNamesApp\State\Middleware\PutStateMiddlewareFactory;
+use GeoNamesApp\State\Service\DeleteStateService;
+use GeoNamesApp\State\Service\DeleteStateServiceFactory;
 use GeoNamesApp\State\Service\GetStateService;
 use GeoNamesApp\State\Service\GetStateServiceFactory;
 use GeoNamesApp\State\Service\PostStateService;
@@ -78,12 +86,16 @@ class ConfigProvider
             'factories' => [
                 # City
                 # Handler
+                DeleteCityHandler::class => DeleteCityHandlerFactory::class,
+                DeleteStateHandler::class => DeleteStateHandlerFactory::class,
                 GetAllCityHandler::class => GetAllCityHandlerFactory::class,
                 GetCityByIdHandler::class => GetCityByIdHandlerFactory::class,
                 PostCityHandler::class => PostCityHandlerFactory::class,
                 PutCityHandler::class => PutCityHandlerFactory::class,
 
                 # Service
+                DeleteCityService::class => DeleteCityServiceFactory::class,
+                DeleteStateService::class => DeleteStateServiceFactory::class,
                 GetCityService::class => GetCityServiceFactory::class,
                 PostCityService::class => PostCityServiceFactory::class,
                 PutCityService::class => PutCityServiceFactory::class,

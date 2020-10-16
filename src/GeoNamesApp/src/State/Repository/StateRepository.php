@@ -73,6 +73,24 @@ class StateRepository extends EntityRepository
     }
 
     /**
+     * @param State $state
+     * @throws StateDatabaseException
+     */
+    public function deleteState(State $state): void
+    {
+        try {
+            $this->getEntityManager()->remove($state);
+            $this->getEntityManager()->flush();
+        } catch (Exception $e) {
+            throw new StateDatabaseException(
+                StatusHttp::INTERNAL_SERVER_ERROR,
+                ErrorMessage::ERROR_DELETING_RECORD,
+                $e->getMessage()
+            );
+        }
+    }
+
+    /**
      * @param int $stateId
      * @return State|null
      * @throws StateDatabaseException
