@@ -2,13 +2,11 @@ git clone https://github.com/jeysonlr/laminas-mezzio-api.git
 
 ### run project
 ```
-bash
 docker-compose up -d --build
 ```
 
 ### enter container for install dependencies
 ```
-bash
 docker exec -it teste-mezzio_laminas bash
 
 composer install
