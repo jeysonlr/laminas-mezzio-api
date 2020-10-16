@@ -64,7 +64,7 @@ class PutCityMiddleware implements MiddlewareInterface
 
             $cityId = intval($request->getAttribute('cidadeId'));
 
-            if(!$this->getCityService->getCityById($cityId)) {
+            if (!$this->getCityService->getCityById($cityId)) {
                 throw new CityIdException(
                     StatusHttp::NOT_FOUND,
                     sprintf(
@@ -77,7 +77,6 @@ class PutCityMiddleware implements MiddlewareInterface
             $this->validationService->validateEntity($city, ['update']);
             $city->setCidadeid($cityId);
             $city->setNome(strtoupper($city->getNome()));
-
         } catch (BaseEntityException $e) {
             return new ApiResponse($e->getCustomError(), $e->getCode(), ApiResponse::ERROR);
         } catch (BaseEntityViolationsException $e) {

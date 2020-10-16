@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace GeoNamesApp\City\Middleware;
 
 use App\Util\Serialize\SerializeUtil;
+use Psr\Container\ContainerInterface;
 use App\Util\Validation\ValidationService;
 use GeoNamesApp\City\Service\GetCityService;
-use Psr\Container\ContainerInterface;
 
 class PutCityMiddlewareFactory
 {

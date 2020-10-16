@@ -38,7 +38,7 @@ class GetStateByIdHandler implements RequestHandlerInterface
                 intval($request->getAttribute("estadoId"))
             );
 
-            if(!$getState) {
+            if (!$getState) {
                 throw new StateDatabaseException(
                     StatusHttp::NOT_FOUND,
                     sprintf(

@@ -72,7 +72,7 @@ class PostCityMiddleware implements MiddlewareInterface
 
             $this->validationService->validateEntity($city, ['insert']);
 
-            if(!$this->getStateService->getStateById($city->getEstadoid())) {
+            if (!$this->getStateService->getStateById($city->getEstadoid())) {
                 throw new StateIdException(
                     StatusHttp::BAD_REQUEST,
                     sprintf(
@@ -94,7 +94,6 @@ class PostCityMiddleware implements MiddlewareInterface
                 );
             }
             $city->setNome(strtoupper($city->getNome()));
-
         } catch (BaseEntityException $e) {
             return new ApiResponse($e->getCustomError(), $e->getCode(), ApiResponse::ERROR);
         } catch (BaseEntityViolationsException $e) {

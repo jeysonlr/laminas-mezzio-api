@@ -63,7 +63,7 @@ class PutStateMiddleware implements MiddlewareInterface
 
             $stateId = intval($request->getAttribute('estadoId'));
 
-            if(!$this->getStateService->getStateById($stateId)) {
+            if (!$this->getStateService->getStateById($stateId)) {
                 throw new StateDatabaseException(
                     StatusHttp::NOT_FOUND,
                     sprintf(
@@ -75,8 +75,8 @@ class PutStateMiddleware implements MiddlewareInterface
 
             $this->validationService->validateEntity($state, ['update']);
             $state->setEstadoid($stateId);
-//            var_dump($state);
-//            exit;
+            //            var_dump($state);
+            //            exit;
 
         } catch (BaseEntityException $e) {
             return new ApiResponse($e->getCustomError(), $e->getCode(), ApiResponse::ERROR);

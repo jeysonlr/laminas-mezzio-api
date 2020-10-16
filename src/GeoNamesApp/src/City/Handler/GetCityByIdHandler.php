@@ -41,7 +41,7 @@ class GetCityByIdHandler implements RequestHandlerInterface
                 $cityId
             );
 
-            if(!$getCity) {
+            if (!$getCity) {
                 throw new CityIdException(
                     StatusHttp::NOT_FOUND,
                     sprintf(

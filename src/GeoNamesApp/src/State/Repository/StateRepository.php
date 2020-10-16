@@ -128,7 +128,7 @@ class StateRepository extends EntityRepository
             $query->setParameter('nome', $name);
             return $query->getOneOrNullResult();
         } catch (SQLFileNotFoundException $e) {
-            throw$e;
+            throw $e;
         } catch (Exception $e) {
             throw new StateDatabaseException(
                 StatusHttp::INTERNAL_SERVER_ERROR,
@@ -156,11 +156,11 @@ class StateRepository extends EntityRepository
             $query->setParameter('estadoid', $stateId);
             return $query->getResult();
         } catch (SQLFileNotFoundException $e) {
-            throw$e;
+            throw $e;
         } catch (Exception $e) {
             throw new StateDatabaseException(
                 StatusHttp::INTERNAL_SERVER_ERROR,
-                "Ocorreu um erro ao buscar estado!",
+                "Ocorreu um erro ao buscar cidades por estado!",
                 $e->getMessage()
             );
         }

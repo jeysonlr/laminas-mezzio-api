@@ -5,13 +5,6 @@ return [
         'api_server' => [
             'auth' => [
                 'api-keys' => [
-//                    '' => [ // Admin
-//                        'allowed-routes' => ['*'],
-//                        'rate-limit' => [
-//                            'max_requests' => 500, // 1000 / seconds
-//                            'reset_time' => 1,
-//                        ],
-//                    ],
                     'e0f66c28-f348-4304-9609-3169f0cd07cf' => [ // Clients
                         'allowed-routes' => [
                             'post.city' => ['POST'],

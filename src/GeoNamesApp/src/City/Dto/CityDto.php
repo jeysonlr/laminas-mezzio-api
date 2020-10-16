@@ -2,60 +2,46 @@
 
 declare(strict_types=1);
 
-namespace GeoNamesApp\City\Entity;
-
-use App\Entity\BaseEntityInterface;
+namespace GeoNamesApp\City\Dto;
 
 use DateTime;
-use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation\Type;
-use Symfony\Component\Validator\Constraints\NotBlank;
 
-/**
- *public.cidades
- *
- * @ORM\Table(schema="public", name="cidades")
- * @ORM\Entity(repositoryClass="GeoNamesApp\City\Repository\CityRepository")
- */
-class City implements BaseEntityInterface
+class CityDto
 {
-    /** 
+    /**
      * @var int
      * @Type("int")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * @ORM\SequenceGenerator(sequenceName="public.cidades_id_seq", allocationSize=1, initialValue=1)
-     * @ORM\Column(name="cidadeid", type="integer", nullable=false)
      */
     private $cidadeid;
 
     /**
      * @var string
      * @Type("string")
-     * @ORM\Column(name="nome", type="text", nullable=false)
-     * @NotBlank(groups={"insert", "update"}, message="O campo nome é obrigatório!")
      */
     private $nome;
 
     /**
      * @var int
      * @Type("int")
-     * @ORM\Column(name="estadoid", type="integer", nullable=false)
-     * @NotBlank(groups={"insert", "update"}, message="O id do estado é obrigatório!")
      */
     private $estadoid;
 
     /**
+     * @var @var string
+     * @Type("string")
+     */
+    private $estadonome;
+
+    /**
      * @var Datetime
      * @Type("DateTime<'d/m/Y H:i:s'>")
-     * @ORM\Column(name="datacriacao", type="datetime")
      */
     private $datacriacao;
 
     /**
      * @var Datetime
      * @Type("DateTime<'d/m/Y H:i:s'>")
-     * @ORM\Column(name="dataalteracao", type="datetime")
      */
     private $dataalteracao;
 
@@ -137,5 +123,21 @@ class City implements BaseEntityInterface
     public function setDataalteracao(?DateTime $dataalteracao): void
     {
         $this->dataalteracao = $dataalteracao;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEstadonome()
+    {
+        return $this->estadonome;
+    }
+
+    /**
+     * @param mixed $estadonome
+     */
+    public function setEstadonome($estadonome): void
+    {
+        $this->estadonome = $estadonome;
     }
 }

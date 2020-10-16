@@ -7,13 +7,9 @@ namespace GeoNamesApp\State\Entity;
 use App\Entity\BaseEntityInterface;
 
 use DateTime;
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use GeoNamesApp\City\Entity\City;
 use JMS\Serializer\Annotation\Type;
 use Symfony\Component\Validator\Constraints\NotBlank;
-use JMS\Serializer\Annotation\SerializedName;
-use Doctrine\ORM\Mapping\OneToMany;
 
 /**
  *public.estados
@@ -33,7 +29,7 @@ class State implements BaseEntityInterface
      */
     private $estadoid;
 
-     /**
+    /**
      * @var string
      * @Type("string")
      * @ORM\Column(name="nome", type="text", nullable=false)
@@ -41,7 +37,7 @@ class State implements BaseEntityInterface
      */
     private $nome;
 
-     /**
+    /**
      * @var string
      * @Type("string")
      * @ORM\Column(name="abreviacao", type="text", nullable=false)
@@ -49,14 +45,14 @@ class State implements BaseEntityInterface
      */
     private $abreviacao;
 
-     /**
+    /**
      * @var Datetime
      * @Type("DateTime<'d/m/Y H:i:s'>")
      * @ORM\Column(name="datacriacao", type="datetime")
      */
     private $datacriacao;
 
-     /**
+    /**
      * @var Datetime
      * @Type("DateTime<'d/m/Y H:i:s'>")
      * @ORM\Column(name="dataalteracao", type="datetime")

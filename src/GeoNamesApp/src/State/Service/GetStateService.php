@@ -51,7 +51,7 @@ class GetStateService
      */
     public function getStateById(int $stateId): ?State
     {
-       return $this->stateRepository->findByStateId($stateId);
+        return $this->stateRepository->findByStateId($stateId);
     }
 
     /**

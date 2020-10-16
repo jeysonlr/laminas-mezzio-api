@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace GeoNamesApp\City\Service;
 
+use GeoNamesApp\City\Dto\CityDto;
 use GeoNamesApp\City\Entity\City;
 use App\Exception\SQLFileNotFoundException;
+use GeoNamesApp\State\Service\GetStateService;
 use GeoNamesApp\City\Repository\CityRepository;
 use GeoNamesApp\City\Exception\CityDatabaseException;
+use GeoNamesApp\State\Exception\StateDatabaseException;
 
 class GetCityService
 {
@@ -16,10 +19,17 @@ class GetCityService
      */
     private $cityRepository;
 
+    /**
+     * @var GetStateService
+     */
+    private $getStateService;
+
     public function __construct(
-        CityRepository $cityRepository
+        CityRepository $cityRepository,
+        GetStateService $getStateService
     ) {
         $this->cityRepository = $cityRepository;
+        $this->getStateService = $getStateService;
     }
 
     /**
@@ -35,10 +45,26 @@ class GetCityService
     /**
      * @return array|null
      * @throws CityDatabaseException
+     * @throws StateDatabaseException
      */
     public function getAllCitys(): ?array
     {
-        return $this->cityRepository->findAllCitys();
+        $allCitys = $this->cityRepository->findAllCitys();
+
+        $allCityResult = [];
+        foreach ($allCitys as $key => $value) {
+            $stateName = $this->getStateService->getStateById($value->getEstadoid());
+            $cityDto = new CityDto();
+            $cityDto->setCidadeid($value->getCidadeid());
+            $cityDto->setNome($value->getNome());
+            $cityDto->setEstadoid($value->getEstadoid());
+            $cityDto->setEstadonome($stateName->getNome());
+            $cityDto->setDatacriacao($value->getDatacriacao());
+            $cityDto->setDataalteracao($value->getDataalteracao());
+            array_push($allCityResult, $cityDto);
+        }
+
+        return $allCityResult;
     }
 
     /**

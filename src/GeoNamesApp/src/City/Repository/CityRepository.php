@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace GeoNamesApp\City\Repository;
 
-use App\Exception\SQLFileNotFoundException;
-use App\Util\ReadArchive\ReadArchiveSQL;
-use Doctrine\ORM\Query\ResultSetMapping;
 use Exception;
-use GeoNamesApp\City\Entity\City;
 use App\Util\Enum\StatusHttp;
 use App\Util\Enum\ErrorMessage;
+use GeoNamesApp\City\Entity\City;
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Query\ResultSetMapping;
+use App\Util\ReadArchive\ReadArchiveSQL;
+use App\Exception\SQLFileNotFoundException;
 use GeoNamesApp\City\Exception\CityDatabaseException;
 
 class CityRepository extends EntityRepository
@@ -128,7 +128,7 @@ class CityRepository extends EntityRepository
             $query->setParameter('nome', $name);
             return $query->getOneOrNullResult();
         } catch (SQLFileNotFoundException $e) {
-            throw$e;
+            throw $e;
         } catch (Exception $e) {
             throw new CityDatabaseException(
                 StatusHttp::INTERNAL_SERVER_ERROR,
