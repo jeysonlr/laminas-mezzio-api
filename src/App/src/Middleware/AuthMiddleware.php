@@ -78,7 +78,7 @@ class AuthMiddleware implements MiddlewareInterface
         if (!$request->hasHeader('x-api-key')) {
             throw new AuthorizationException(
                 StatusHttp::UNAUTHORIZED,
-                'Não encontrado chave de authorizacão no header!'
+                'Não encontrado chave de autorização no header!'
             );
         }
 
