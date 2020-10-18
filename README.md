@@ -11,7 +11,7 @@ docker-compose up -d --build
 
 ### enter container for install dependencies
 ```
-docker exec -it teste-mezzio_laminas bash
+docker exec -it teste-mezzio_laminas_1 bash
 
 composer install
 ```
