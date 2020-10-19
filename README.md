@@ -42,6 +42,8 @@ project run port 8082
 
 https://documenter.getpostman.com/view/7013209/TVRrUjEF
 
+or archive in raiz project  GeoNames.postman_collection.json
+
 ### email
 ``
 jeysonlr@gmail.com
